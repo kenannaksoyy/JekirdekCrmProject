@@ -37,7 +37,7 @@ namespace JekirdekCrm.Domain.Interface.Repositories
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public Task UpdateCustomerAsync(Customer customer);
+        public Task UpdateCustomerAsync(Customer editingCustomer, Customer existingCustomer);
         /// <summary>
         /// Müşteri Sil
         /// </summary>

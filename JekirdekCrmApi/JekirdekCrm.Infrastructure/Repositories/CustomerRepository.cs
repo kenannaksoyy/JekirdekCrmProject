@@ -56,14 +56,14 @@ namespace JekirdekCrm.Infrastructure.Repositories
             return customers;
         }
 
-        public async Task UpdateCustomerAsync(Customer customer)
+        public async Task UpdateCustomerAsync(Customer editingCustomer, Customer existingCustomer)
         {
-            Customer existingCustomer = await _jekirdekCrmDbContext.Customers.FirstAsync(c => c.Id == customer.Id);
+            
             //Belirli Alanları Setle
-            existingCustomer.FirstName = customer.FirstName;
-            existingCustomer.LastName = customer.LastName;
-            existingCustomer.Email = customer.Email;
-            existingCustomer.Region = customer.Region;
+            existingCustomer.FirstName = editingCustomer.FirstName;
+            existingCustomer.LastName = editingCustomer.LastName;
+            existingCustomer.Email = editingCustomer.Email;
+            existingCustomer.Region = editingCustomer.Region;
 
             await _jekirdekCrmDbContext.SaveChangesAsync();
         }
