@@ -61,7 +61,7 @@ namespace JekirdekCrm.Application.Services
                     throw new NotFoundException("Müşteri Silinmesinde Id Değeri 1'den Küçük Olamaz");
                 }
                 Customer? customer = await _customerRepository.GetCustomerByIdAsync(id) 
-                    ?? throw new NotFoundException($"Silinmek İstenen {id}'li Müşteri Bulunamadı");
+                    ?? throw new NotFoundException($"Silinmek İstenen {id} Id'li Müşteri Bulunamadı");
 
                 //Validasyonlar Sonrası Müşteri Siliniyor
                 await _customerRepository.DeleteCustomerAsync(customer);
