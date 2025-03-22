@@ -69,7 +69,7 @@ namespace JekirdekCrm.Application.Authentication
             try
             {
                 //Gelen Requestin Eksiklik Kontrolü
-                if (string.IsNullOrEmpty(userLoginRequest.UserName) || string.IsNullOrEmpty(userLoginRequest.UserName))
+                if (string.IsNullOrEmpty(userLoginRequest.UserName) || string.IsNullOrEmpty(userLoginRequest.Password))
                 {
                     //Hazırda Vardı
                     throw new MissingFieldException("Kullanıcının Eksik Bilgileri Mevcut");
