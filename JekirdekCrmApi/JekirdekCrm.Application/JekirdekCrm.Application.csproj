@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JekirdekCrm.CrossCutting\JekirdekCrm.CrossCutting.csproj" />
+    <ProjectReference Include="..\JekirdekCrm.Domain\JekirdekCrm.Domain.csproj" />
+    <ProjectReference Include="..\JekirdekCrm.Infrastructure\JekirdekCrm.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
