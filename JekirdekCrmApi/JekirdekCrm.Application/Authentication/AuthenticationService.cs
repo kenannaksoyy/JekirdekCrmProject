@@ -35,6 +35,8 @@ namespace JekirdekCrm.Application.Authentication
 
         public async Task<UserLoginResponse> UserLoginAsync(UserLoginRequest userLoginRequest)
         {
+            //string Alanları Bir trimle
+            StringHelper.TrimStringProperties(userLoginRequest);
             //Kullanıcı Validaysonu
             UserModel userModel = await LoginValidate(userLoginRequest);
 

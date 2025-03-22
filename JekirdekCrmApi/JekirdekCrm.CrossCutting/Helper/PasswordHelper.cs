@@ -11,7 +11,7 @@ namespace JekirdekCrm.CrossCutting.Helper
     /// Dbye Kayıt Yaparken Şifre Hashlenmiş Olarak Kaydedilcek
     /// Dbden Çekilen Hash Password ile Loginden Gelen Çıplak Şifre Doğrulaması Yapılcak
     /// </summary>
-    public class PasswordHelper
+    public static class PasswordHelper
     {
         /// <summary>
         /// Gelen Şifre Bilgisini Hashlemektedir
