@@ -1,5 +1,5 @@
+using JekirdekCrm.Domain.Dto.Response;
 using JekirdekCrm.Domain.Interface.Services;
-using JekirdekCrm.Domain.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JekirdekCrm.Api.Controllers
@@ -18,13 +18,17 @@ namespace JekirdekCrm.Api.Controllers
             _customerService = customerService;
         }
 
+        /// <summary>
+        /// Müþterileri Getirmektedir
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetCustomers")]
         public async Task<IActionResult> GetCustomersAsync()
         {
             try
             {
-                List<CustomerModel> customerModels = await _customerService.GetAllAsync();
-                return Ok(customerModels);
+                List<CustomerResponse> customerResponses = await _customerService.GetAllAsync();
+                return Ok(customerResponses);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
 ﻿using JekirdekCrm.Domain.Dto.Request;
+using JekirdekCrm.Domain.Dto.Response;
 using JekirdekCrm.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace JekirdekCrm.Domain.Interface.Services
         /// Servislerde Role Dair Birşey Olmayacak
         /// </summary>
         /// <returns></returns>
-        public Task<List<CustomerModel>> GetAllAsync();
+        public Task<List<CustomerResponse>> GetAllAsync();
 
         /// <summary>
         /// Idye göre müşteri getirme
@@ -29,7 +30,7 @@ namespace JekirdekCrm.Domain.Interface.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task<CustomerModel> GetByIdAsync(int id);
+        public Task<CustomerResponse> GetByIdAsync(int id);
 
         /// <summary>
         /// Yeni Müşteri Oluşturma

@@ -1,5 +1,6 @@
 using JekirdekCrm.Application.Authentication;
 using JekirdekCrm.Application.Services;
+using JekirdekCrm.CrossCutting.Mapper;
 using JekirdekCrm.Domain.Interface.Authentication;
 using JekirdekCrm.Domain.Interface.Repositories;
 using JekirdekCrm.Domain.Interface.Services;
@@ -15,6 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<JekirdekCrmDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("JekirdekCrmDbConnection")));
 
+//Automapperýmýzý Belirttik
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
 // Add services to the container.
 builder.Services.AddControllers();

@@ -1,4 +1,6 @@
-﻿using JekirdekCrm.Domain.Dto.Request;
+﻿using AutoMapper;
+using JekirdekCrm.Domain.Dto.Request;
+using JekirdekCrm.Domain.Dto.Response;
 using JekirdekCrm.Domain.Entity;
 using JekirdekCrm.Domain.Interface.Repositories;
 using JekirdekCrm.Domain.Interface.Services;
@@ -14,9 +16,11 @@ namespace JekirdekCrm.Application.Services
     public class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepository ;
-        public CustomerService(ICustomerRepository customerRepository)
+        private readonly IMapper _mapper;
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;
+            _mapper = mapper;
         }
         public Task<int> CreateAsync(CustomerRequest customerRequest)
         {
@@ -28,14 +32,22 @@ namespace JekirdekCrm.Application.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<CustomerModel>> GetAllAsync()
+        public async Task<List<CustomerResponse>> GetAllAsync()
         {
-            //Deneme Amaçlı Test Edilcek
+            List<CustomerResponse> customerResponses = [];
+            //Dbden Müşterileri Aldık
             List<Customer> customers = await _customerRepository.GetCustomersAsync();
-            return new List<CustomerModel>();
+            if(customers.Any())
+            {
+                //Db Nesnemizi App Nesnemize Çevirdik
+                List<CustomerModel> customerModels = _mapper.Map<List<CustomerModel>>(customers);
+                //App Nesnemizi Ui Nesnemize Çevirdik
+                customerResponses = _mapper.Map<List<CustomerResponse>>(customerModels);
+            }
+            return customerResponses;
         }
 
-        public Task<CustomerModel> GetByIdAsync(int id)
+        public Task<CustomerResponse> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }

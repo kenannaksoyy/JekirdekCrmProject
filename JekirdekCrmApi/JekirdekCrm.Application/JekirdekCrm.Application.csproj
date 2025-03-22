@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\JekirdekCrm.CrossCutting\JekirdekCrm.CrossCutting.csproj" />
     <ProjectReference Include="..\JekirdekCrm.Domain\JekirdekCrm.Domain.csproj" />
     <ProjectReference Include="..\JekirdekCrm.Infrastructure\JekirdekCrm.Infrastructure.csproj" />
