@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JekirdekCrm.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CustomerController : ControllerBase
     {
         
@@ -28,11 +28,19 @@ namespace JekirdekCrm.Api.Controllers
             try
             {
                 List<CustomerResponse> customerResponses = await _customerService.GetAllAsync();
-                return Ok(customerResponses);
+                return Ok(new
+                {
+                    IsError = false,
+                    Customers = customerResponses
+                });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    IsError = true,
+                    ErrorMessage = ex.Message
+                });
             }
         }
     }

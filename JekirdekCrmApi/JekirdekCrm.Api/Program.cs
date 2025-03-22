@@ -6,7 +6,10 @@ using JekirdekCrm.Domain.Interface.Repositories;
 using JekirdekCrm.Domain.Interface.Services;
 using JekirdekCrm.Infrastructure.Context;
 using JekirdekCrm.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,31 @@ var builder = WebApplication.CreateBuilder(args);
 //Repolarýn Ctorlarýnda Bulunmalýdýr
 builder.Services.AddDbContext<JekirdekCrmDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("JekirdekCrmDbConnection")));
+
+
+//Authentication Ekliyoruz
+builder.Services.AddAuthentication(options =>
+{
+    //Þemamýzý Belirttik Dafeult Olarak Bearer
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    //Þema Sonrasý JWTBearer Burada Ekliyoruz appsettings.jsonda JWTKey Özelliðinin Altýnda Crenler(Sahip, Ýster, Secret Key) Bulunmaktadýr
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["JWTKey:ValidAudience"],
+            ValidIssuer = builder.Configuration["JWTKey:ValidIssuer"],
+            ClockSkew = TimeSpan.Zero,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTKey:Secret"]))
+        };
+    });
 
 //Automapperýmýzý Belirttik
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
