@@ -109,6 +109,7 @@ namespace JekirdekCrm.Api.Controllers
                 return ex switch
                 {
                     ConflictException => StatusCode(StatusCodes.Status409Conflict,new { IsError = true, ErrorMessage = ex.Message }),
+                    MissingFieldException => BadRequest(new { IsError = true, ErrorMessage = ex.Message }),
                     _ => StatusCode(StatusCodes.Status500InternalServerError, new { IsError = true, ErrorMessage = CUSTOMER_UNEXPEXTED_ERROR + ex.Message })
                 };
 
@@ -137,6 +138,7 @@ namespace JekirdekCrm.Api.Controllers
                     //Çeþitli Hatalara Göre Uygun Statu Dönüþü
                     NotFoundException => NotFound(new { IsError = true, ErrorMessage = ex.Message }),
                     ConflictException => StatusCode(StatusCodes.Status409Conflict, new { IsError = true, ErrorMessage = ex.Message }),
+                    MissingFieldException => BadRequest(new { IsError = true, ErrorMessage = ex.Message }),
                     _ => StatusCode(StatusCodes.Status500InternalServerError, new { IsError = true, ErrorMessage = CUSTOMER_UNEXPEXTED_ERROR + ex.Message })
 
                 };
