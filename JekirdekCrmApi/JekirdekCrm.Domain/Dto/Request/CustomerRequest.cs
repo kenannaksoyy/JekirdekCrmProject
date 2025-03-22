@@ -18,8 +18,9 @@ namespace JekirdekCrm.Domain.Dto.Request
         /// <summary>
         /// Müşteri Eşsiz Idsi
         /// Yeni Müşteride Id Olmayacak Güncellemede Id Olcak
+        /// Null Olabilir Yeni Müşteri İçin
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>
         /// Müşteri Adı
         /// </summary>

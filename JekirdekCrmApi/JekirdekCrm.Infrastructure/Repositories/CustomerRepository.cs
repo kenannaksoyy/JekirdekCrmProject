@@ -18,24 +18,35 @@ namespace JekirdekCrm.Infrastructure.Repositories
             _jekirdekCrmDbContext = jekirdekCrmDbContext;
         }
 
-        public Task<int> AddCustomerAsync(Customer customer)
+        public async Task<int> AddCustomerAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            //PostreSql Uygun Tarih Formatı
+            customer.RegistrationDate = DateTime.Now.Date
+                .ToUniversalTime();
+            await _jekirdekCrmDbContext.AddAsync(customer);
+            await _jekirdekCrmDbContext.SaveChangesAsync();
+            return customer.Id;
         }
 
-        public Task<bool> CheckUniqueCustomerAsync(string email, int id)
+        public async Task<bool> CheckUniqueCustomerAsync(string email, int? id)
         {
-            throw new NotImplementedException();
+            //Emaile Bak Uniquelik Emailde Olcak Aynı Müşteri Kontrolüde Sağla
+            Customer? possibleCustomer = await _jekirdekCrmDbContext.Customers
+                .FirstOrDefaultAsync(c => c.Email == email && c.Id != id);
+            return possibleCustomer == null;
         }
 
-        public Task DeleteCustomerAsync(int id)
+        public async Task DeleteCustomerAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            _jekirdekCrmDbContext.Remove(customer);
+            await _jekirdekCrmDbContext.SaveChangesAsync();
         }
 
-        public Task<Customer?> GetCustomerByIdAsync(int id)
+        public async Task<Customer?> GetCustomerByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            Customer? customer = await _jekirdekCrmDbContext.Customers
+                .FirstOrDefaultAsync(customer => customer.Id == id);
+            return customer;
         }
 
         public async Task<List<Customer>> GetCustomersAsync()
@@ -45,9 +56,16 @@ namespace JekirdekCrm.Infrastructure.Repositories
             return customers;
         }
 
-        public Task UpdateCustomerAsync(Customer customer)
+        public async Task UpdateCustomerAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            Customer existingCustomer = await _jekirdekCrmDbContext.Customers.FirstAsync(c => c.Id == customer.Id);
+            //Belirli Alanları Setle
+            existingCustomer.FirstName = customer.FirstName;
+            existingCustomer.LastName = customer.LastName;
+            existingCustomer.Email = customer.Email;
+            existingCustomer.Region = customer.Region;
+
+            await _jekirdekCrmDbContext.SaveChangesAsync();
         }
     }
 }

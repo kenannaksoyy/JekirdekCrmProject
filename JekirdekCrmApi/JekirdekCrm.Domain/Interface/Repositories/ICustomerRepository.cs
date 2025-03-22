@@ -25,7 +25,7 @@ namespace JekirdekCrm.Domain.Interface.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task<Customer?> GetCustomerByIdAsync(int id);
+        public Task<Customer?> GetCustomerByIdAsync(int? id);
         /// <summary>
         /// Müşteri Ekle
         /// </summary>
@@ -43,7 +43,7 @@ namespace JekirdekCrm.Domain.Interface.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task DeleteCustomerAsync(int id);
+        public Task DeleteCustomerAsync(Customer customer);
 
         /// <summary>
         /// Müşteri Eşsizlik Kontrolü
@@ -54,7 +54,7 @@ namespace JekirdekCrm.Domain.Interface.Repositories
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public Task<bool> CheckUniqueCustomerAsync(string email, int id);
+        public Task<bool> CheckUniqueCustomerAsync(string email, int? id);
 
     }
 }
