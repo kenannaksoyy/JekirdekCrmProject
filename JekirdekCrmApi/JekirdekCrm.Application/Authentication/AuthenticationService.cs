@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JekirdekCrm.CrossCutting.Exceptions;
 using JekirdekCrm.CrossCutting.Helper;
 using JekirdekCrm.Domain.Dto.Request;
 using JekirdekCrm.Domain.Dto.Response;
@@ -68,12 +69,13 @@ namespace JekirdekCrm.Application.Authentication
                 //Gelen Requestin Eksiklik Kontrolü
                 if (string.IsNullOrEmpty(userLoginRequest.UserName) || string.IsNullOrEmpty(userLoginRequest.UserName))
                 {
-                    throw new Exception("Kullanıcının Eksik Bilgileri Mevcut");
+                    //Hazırda Vardı
+                    throw new MissingFieldException("Kullanıcının Eksik Bilgileri Mevcut");
                 }
 
                 //Kullanıcı İsim Kontrolü
                 User? user = await _userRepository.GetUserByUserNameAsync(userLoginRequest.UserName)
-                    ?? throw new Exception($"{userLoginRequest.UserName} ile Kayıtlı Bir Kullanıcı Bulunamadı");
+                    ?? throw new NotFoundException($"{userLoginRequest.UserName} ile Kayıtlı Bir Kullanıcı Bulunamadı");
 
                 //Db Nesnemizi App Nesnesine Çevirdik
                 UserModel userModel = _mapper.Map<UserModel>(user);
@@ -82,14 +84,14 @@ namespace JekirdekCrm.Application.Authentication
                 bool passwordCheck = PasswordHelper.VerifyPassword(userLoginRequest.Password, userModel.Password);
                 if (!passwordCheck)
                 {
-                    throw new Exception("Kullanıcının Şifresi Hatalıdır");
+                    throw new PasswordErrorException("Kullanıcının Şifresi Hatalıdır");
                 }
 
                 return userModel;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 

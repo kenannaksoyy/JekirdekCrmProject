@@ -1,4 +1,5 @@
-﻿using JekirdekCrm.Domain.Dto.Request;
+﻿using JekirdekCrm.CrossCutting.Exceptions;
+using JekirdekCrm.Domain.Dto.Request;
 using JekirdekCrm.Domain.Dto.Response;
 using JekirdekCrm.Domain.Interface.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -38,12 +39,13 @@ namespace JekirdekCrm.Api.Controllers
             }
             catch (Exception ex)
             {
-                //401 Kodu İle Hatayı Döndür
-                return StatusCode(StatusCodes.Status401Unauthorized, new
+                return ex switch
                 {
-                    IsError = true,
-                    ErrorMessage = ex.Message,
-                });
+                    MissingFieldException => BadRequest(new { IsError = true, ErrorMessage = ex.Message }),
+                    NotFoundException => NotFound(new { IsError = true, ErrorMessage = ex.Message }),
+                    PasswordErrorException => Unauthorized(new { IsError = true, ErrorMessage = ex.Message }),
+                    _ => StatusCode(500, new { IsError = true, ErrorMessage = "Beklenmeyen bir hata oluştu: " + ex.Message })
+                };
             }
         }
     }

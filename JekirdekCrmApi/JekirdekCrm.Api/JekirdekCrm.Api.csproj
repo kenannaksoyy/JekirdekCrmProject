@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JekirdekCrm.Application\JekirdekCrm.Application.csproj" />
+    <ProjectReference Include="..\JekirdekCrm.CrossCutting\JekirdekCrm.CrossCutting.csproj" />
     <ProjectReference Include="..\JekirdekCrm.Domain\JekirdekCrm.Domain.csproj" />
   </ItemGroup>
 
