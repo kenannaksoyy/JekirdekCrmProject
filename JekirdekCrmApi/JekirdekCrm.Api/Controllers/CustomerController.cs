@@ -75,12 +75,12 @@ namespace JekirdekCrm.Api.Controllers
                 });
             }
             //Servisden Yönetilemiþ Gelen Hatalarý Handle Et Uygun Statude Dön Handle Edilmediyse 500 Gönder
-            catch (NotFoundException ex)
+            catch (Exception ex)
             {
                 return ex switch
                 {
                     NotFoundException => NotFound(new { IsError = true, ErrorMessage = ex.Message }),
-                    _ => StatusCode(500, new { IsError = true, ErrorMessage = CUSTOMER_UNEXPEXTED_ERROR + ex.Message })
+                    _ => StatusCode(StatusCodes.Status500InternalServerError, new { IsError = true, ErrorMessage = CUSTOMER_UNEXPEXTED_ERROR + ex.Message })
                 };
             }
         }
