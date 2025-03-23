@@ -1,5 +1,5 @@
-export default function CustomerManagement(){
-    return(
+export default function CustomerManagement() {
+    return (
         <p>Müşteri Yönetimi</p>
     );
 };
