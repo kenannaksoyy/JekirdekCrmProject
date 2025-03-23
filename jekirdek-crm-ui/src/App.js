@@ -6,9 +6,15 @@ import Header from './mainSubComps/Header';
 import PrivateRoute from './tools/guards/PrivateRoute';
 import NotFound from './mainComps/NotFound/NotFound';
 
+const style = {
+  display: "flex",
+  flexDirection:"column",
+  gap:"1rem"
+};
+
 function App() {
   return (
-    <div className="appContainer">
+    <div style={style} className="appContainer">
       <Header/>
       <Routes>
         <Route path="/" element={<Login />} />

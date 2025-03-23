@@ -39,7 +39,7 @@ export default function NotFound() {
 
     useEffect(() => {
         removeSession();
-    });
+    },[]);
 
     return (
         <div style={styles.container}>
@@ -51,7 +51,7 @@ export default function NotFound() {
                 onMouseEnter={(e) => e.target.style.backgroundColor = styles.linkHover.backgroundColor}
                 onMouseLeave={(e) => e.target.style.backgroundColor = styles.link.backgroundColor}
             >
-                Malesef Tekrar Giriş Yapman Gerekiyor
+                Malesef Giriş Yapman Gerekiyor
             </Link>
         </div>
     );
