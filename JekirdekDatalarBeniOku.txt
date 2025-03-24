@@ -1,0 +1,113 @@
+En sonda Kullanıcılar var Admin User
+
+1. Adım
+
+Kullanıcılar Tablosunun Oluşturulması 
+
+
+CREATE TABLE IF NOT EXISTS public."Users"
+(
+    "Id" integer NOT NULL DEFAULT nextval('"Users_Id_seq"'::regclass),
+    "UserName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "Password" character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    "Role" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "CreatedAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    "UpdatedAt" timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Users_pkey" PRIMARY KEY ("Id")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Users"
+    OWNER to postgres;
+
+
+
+2. Adım 
+
+Müşteriler Tablosunun Oluşturulması
+
+
+-- Table: public.Customers
+
+-- DROP TABLE IF EXISTS public."Customers";
+
+CREATE TABLE IF NOT EXISTS public."Customers"
+(
+    "Id" integer NOT NULL DEFAULT nextval('"Customers_Id_seq"'::regclass),
+    "FirstName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "LastName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "Email" character varying(65) COLLATE pg_catalog."default" NOT NULL,
+    "Region" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "RegistrationDate" timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Customers_pkey" PRIMARY KEY ("Id")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Customers"
+    OWNER to postgres;
+
+
+
+3.Adım
+
+Kullancıların Oluşturulması Password Şifreli Eklendi
+
+insert into "Users"
+("UserName", "Password", "Role", "CreatedAt", "UpdatedAt")
+values
+('Kenan4444','$2a$11$9svQo70q5AwTl59PJaS5Xe8F.SrAv5g8BJX6OfSM4jHo9daeEhmFK','Admin','2025-03-21 00:00:00','2025-03-21 00:00:00'),
+('Kenan3434','$2a$11$x/6xYcJnTAXJRIYi6X43se4jkSUYGlHp41Myo2tgOoaanLkIevRt2','User','2025-03-21 00:00:00','2025-03-21 00:00:00');
+
+
+
+4.Adım
+
+Müşterilerin Oluşturulması
+
+
+insert into "Customers"
+("FirstName", "LastName","Email","Region","RegistrationDate")
+values
+('John','Doe','john.doe@example.com','North America','2023-06-15 00:00:00'),
+('Jane','Smith','jane.smith@example.com','Europe','2023-05-10 00:00:00'),
+('Carlos','Gomez','carlos.gomez@example.com','South America','2023-07-22 00:00:00'),
+		(	'John',	'Doe','john@example.com','North America','2023-06-15 00:00:00'),
+        (  	'Jane',	'Smith', 'jane@example.com',  'South America',  '2023-02-15' ),
+        (  	'Alice','Johnson', 'alice@example.com',  'South America',  '2023-03-10' ),
+        (  	'Bob',	'Brown','bob@example.com',  'Europa',  '2023-04-05' ),
+        (  	'Charlie','Davis', 'charlie@example.com',  'Asia',  '2023-05-20' ),
+        (  	'Eva','Green',  'eva@example.com',  'Asia',  '2023-06-15' ),
+        (  	'Frank','Harris',  'frank@example.com',  'North America',  '2023-07-01' ),
+        (  	'Grace','Clark',  'graceClark@example.com',  'North America',  '2023-08-12' ),
+        (  	'Henry', 'Lewis',  'henryLewis@example.com',  'Asia',  '2023-09-25' ),
+        (  	'Ivy', 'Walker',  'ivyWalker@example.com',  'Africa',  '2023-10-30' ),
+        (  	'Grace', 'Clark',  'grace@example.com',  'Africa',  '2023-08-12' ),
+        (  	'Henry',  'Lewis',  'henry@example.com',  'North',  '2023-09-25' ),
+        (  	'Ivy',  'Walker',  'ivy@example.com',  'South',  '2023-10-30' );
+
+
+5. Adım
+
+api projesinde appsettings.jsonda connectionstringi modifiye edin
+
+
+"ConnectionStrings": {
+  "JekirdekCrmDbConnection": "Host=localhost;Database=jekirdekCrm;Username=postgres;Password=Malatya+44"
+}
+
+
+Kenan4444 kullanıcısı
+Malatya+44 şifresi
+Admin rolü
+
+Kenan3434 kullanıcısı
+İstanbul+34 şifresi
+User rolü
+		
+
+
+
+
+
