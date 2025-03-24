@@ -121,6 +121,10 @@ export default function CustomerManagement() {
     //Müşteri Silme
     const handleDelete = async (customer) => {
         if (checkAdminAuthorization()) {
+            const isConfirmed = window.confirm("Müşteriyi Silmek İstediğine Eminmisin?");
+            if(!isConfirmed){
+                return;
+            }
             const res = await deleteCustomerService(customer.id);
             if (res.status === 204) {
                 alert(customer.id + "'li Müşteri Silindi");
