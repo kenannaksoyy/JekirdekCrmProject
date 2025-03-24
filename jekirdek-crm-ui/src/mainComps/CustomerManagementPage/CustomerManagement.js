@@ -193,7 +193,7 @@ export default function CustomerManagement() {
                 modalMode={modalMode}
                 getCustomers={getCustomers}
             />
-            <CustomerFilter/>
+            <CustomerFilter getCustomers={getCustomers} setCustomers={setCustomers}/>
         </div>
     );
 }

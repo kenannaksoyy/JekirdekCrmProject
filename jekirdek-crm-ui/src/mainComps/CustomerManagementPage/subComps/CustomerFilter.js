@@ -2,18 +2,35 @@ import React, { useState } from "react";
 
 import { customerFilterstyles } from "../styles/customerFilterStyle";
 import { regions } from "../../../constanst/sources";
+import { GetFilteredCustomersService } from "../../../services/customerServices";
 
 export default function CustomerFilter(props) {
-
+    const {getCustomers, setCustomers} = props;
     const [filters, setFilters] = useState({
         name: "",
-        region: "",
+        region: "Africa",
         startDate: "",
         endDate: "",
     });
 
     const filterCustomer = async () => {
-        console.log("Filtre", filters)
+        const res = await GetFilteredCustomersService(filters.name, filters.region, filters.startDate, filters.endDate);
+        if(res.status === 200){
+            if(res.data.filteredCustomers.length === 0){
+                alert("Hiç Müşteri Bulunamadı");
+            }
+            else{
+                setCustomers(res.data.filteredCustomers);
+            }
+        }
+        else{
+            if(res.status === 400){
+                alert(res.response.data.errorMessage);
+            }
+            else{
+                alert("Beklenmedik Bir Hata Oluştu");
+            }
+        }
     };
 
     // Filtereler Değiştikte Değiş
@@ -26,13 +43,14 @@ export default function CustomerFilter(props) {
     };
 
     // Filtreleri Temizle
-    const clearFilters = () => {
+    const clearFilters = async () => {
         setFilters({
             name: "",
-            region: "",
+            region: "Africa",
             startDate: "",
             endDate: "",
         });
+        await getCustomers();
     };
 
     return (
