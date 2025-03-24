@@ -66,7 +66,7 @@ export default function Login() {
         password: ""
     });
     //Ekran Yönledirme Hookumuz
-    const navigate  =  useNavigate();
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         //İd ile State Porpsu Eşlescek
@@ -85,22 +85,22 @@ export default function Login() {
         const res = await userLogin(loginInfos.userName, loginInfos.password);
         //Servisden Gelen Statu İle Hata Yönetimi
         console.log(res.status);
-        if(res.status === 200){
-            const { token, userName} = res.data.customerLogin;
+        if (res.status === 200) {
+            const { token, userName } = res.data.customerLogin;
             let sessionOk = createSession(userName, token);
-            if(sessionOk){
+            if (sessionOk) {
                 //Herşey Okey Müşteri Yönetim Paneline Yönlendir
                 alert("Kullanıcı Girişi Başarılı");
                 navigate("/CustomerManagement");
             }
         }
-        else{
+        else {
             //Yönetilmiş Hatalarmız Statuler
-            if(res.status === 400 || res.status === 404){
+            if (res.status === 400 || res.status === 404 || res.status === 401) {
                 alert(res.response.data.errorMessage);
             }
             //Yönetilmemiş İse Detay Verme
-            else{
+            else {
                 alert("Beklenmedik Bir Hata Oluştu");
             }
         }
