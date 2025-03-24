@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\JekirdekCrm.Api.props" />
+</Project>

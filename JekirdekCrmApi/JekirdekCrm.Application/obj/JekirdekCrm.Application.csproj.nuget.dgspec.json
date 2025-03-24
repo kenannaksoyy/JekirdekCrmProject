@@ -59,6 +59,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -106,7 +116,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\JekirdekCrmProject\\JekirdekCrmApi\\JekirdekCrm.Domain\\JekirdekCrm.Domain.csproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\JekirdekCrmProject\\JekirdekCrmApi\\JekirdekCrm.Domain\\JekirdekCrm.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -124,6 +138,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

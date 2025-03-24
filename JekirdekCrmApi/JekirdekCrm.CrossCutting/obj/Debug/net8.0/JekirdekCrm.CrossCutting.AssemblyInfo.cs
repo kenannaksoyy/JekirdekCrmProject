@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JekirdekCrm.CrossCutting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+889e52289a7d22a8571565efecb5c389ee90a8c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b80c787dd2379ecdfbdb5d4ea6346d7f69c13318")]
 [assembly: System.Reflection.AssemblyProductAttribute("JekirdekCrm.CrossCutting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JekirdekCrm.CrossCutting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

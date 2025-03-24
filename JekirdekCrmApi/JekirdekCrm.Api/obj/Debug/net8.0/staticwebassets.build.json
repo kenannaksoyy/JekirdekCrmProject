@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "pZ4zYsJleNzBEm98I5lEh5EoxQBqdpL0KFN3PplXVpI=",
+  "Source": "JekirdekCrm.Api",
+  "BasePath": "_content/JekirdekCrm.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
