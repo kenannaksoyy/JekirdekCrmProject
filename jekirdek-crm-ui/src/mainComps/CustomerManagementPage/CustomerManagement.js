@@ -173,7 +173,7 @@ export default function CustomerManagement() {
             <table style={custManStyles.table}>
                 <thead>
                     <tr>
-                        <th style={custManStyles.th}>Kullanıcı Id</th>
+                        <th style={custManStyles.th}>Müşteri Id</th>
                         <th style={custManStyles.th}>İsim</th>
                         <th style={custManStyles.th}>Soyisim</th>
                         <th style={custManStyles.th}>Email</th>

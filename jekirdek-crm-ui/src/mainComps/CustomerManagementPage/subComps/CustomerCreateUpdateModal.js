@@ -87,7 +87,7 @@ export default function CustomerCreateUpdateModal(props) {
                 <h2>{modalMode === "update" ? "Müşteri Güncelle" : "Müşteri Ekle"}</h2>
                 <form onSubmit={handleModalSubmit}>
                     <div style={customerModalStyles.formGroup}>
-                        <label>First Name</label>
+                        <label>İsim</label>
                         <input
                             type="text"
                             id="firstName"
@@ -97,7 +97,7 @@ export default function CustomerCreateUpdateModal(props) {
                         />
                     </div>
                     <div style={customerModalStyles.formGroup}>
-                        <label>Last Name</label>
+                        <label>Soyisim</label>
                         <input
                             type="text"
                             id="lastName"
@@ -117,7 +117,7 @@ export default function CustomerCreateUpdateModal(props) {
                         />
                     </div>
                     <div style={customerModalStyles.formGroup}>
-                        <label>Region</label>
+                        <label>Bölge</label>
                         <select
                             id="region"
                             value={formData.region}
