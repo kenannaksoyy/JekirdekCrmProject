@@ -169,12 +169,12 @@ export default function CustomerManagement() {
             <table style={custManStyles.table}>
                 <thead>
                     <tr>
-                        <th style={custManStyles.th}>ID</th>
-                        <th style={custManStyles.th}>First Name</th>
-                        <th style={custManStyles.th}>Last Name</th>
+                        <th style={custManStyles.th}>Kullanıcı Id</th>
+                        <th style={custManStyles.th}>İsim</th>
+                        <th style={custManStyles.th}>Soyisim</th>
                         <th style={custManStyles.th}>Email</th>
-                        <th style={custManStyles.th}>Region</th>
-                        <th style={custManStyles.th}>Registration Date</th>
+                        <th style={custManStyles.th}>Bölge</th>
+                        <th style={custManStyles.th}>Oluşturulma Tarihi</th>
                         <th style={custManStyles.th}>İşlemler</th>
                     </tr>
                 </thead>
