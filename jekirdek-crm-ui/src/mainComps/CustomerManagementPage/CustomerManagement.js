@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { custManStyles } from './styles/customerManStyle';
 import CustomerManPagination from './subComps/CustomerManPagination';
-import { getCustomersService } from '../../services/customerServices';
+import { deleteCustomerService, getCustomersService } from '../../services/customerServices';
 import { useNavigate } from 'react-router-dom';
 import CustomerCreateUpdateModal from './subComps/CustomerCreateUpdateModal';
 
@@ -16,7 +16,7 @@ export default function CustomerManagement() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCustomer, setSelectedCustomer] = useState(null);
-    const [modalMode, setModalMode] = useState("update"); 
+    const [modalMode, setModalMode] = useState("update");
 
     //Sayfa İlk Yüklemesi 
     useEffect(() => {
@@ -102,50 +102,58 @@ export default function CustomerManagement() {
                 </td>
             </tr>
         )
-    );
+        );
 
     //Müşteri Güncelleme
     const handleUpdate = (customer) => {
-        if(checkAdminAuthorization()){
+        if (checkAdminAuthorization()) {
             setSelectedCustomer(customer);
             setModalMode("update");
             setIsModalOpen(true);
             console.log("Güncellenecek", customer);
         }
-        else{
+        else {
             alert("Müşteri Eklemeye Yetkin Yok");
         }
-        
+
     };
 
     //Müşteri Silme
-    const handleDelete = (customer) => {
-        if(checkAdminAuthorization()){
-            console.log("Silinecek", customer);
+    const handleDelete = async (customer) => {
+        if (checkAdminAuthorization()) {
+            const res = await deleteCustomerService(customer.id);
+            if (res.status === 204) {
+                alert(customer.id + "'li Müşteri Silindi");
+                await getCustomers();
+            }
+            else {
+                if (res.status === 404) {
+                    alert(res.response.data.errorMessage)
+                }
+                else {
+                    alert("Beklenmedik Bir Sorun Oluştu");
+                }
+            }
         }
-        else{
+        else {
             alert("Müşteri Eklemeye Yetkin Yok");
         }
-        
+
     };
 
     //Müşteri Ekleme
     const handleAddCustomer = () => {
-        if(checkAdminAuthorization()){
+        if (checkAdminAuthorization()) {
             setSelectedCustomer(null);
             setModalMode("add");
             setIsModalOpen(true);
             console.log("Yeni Müşteri Ekleme");
         }
-        else{
+        else {
             alert("Müşteri Eklemeye Yetkin Yok");
         }
-        
+
     };
-
-    
-
-
 
     return (
         <div style={custManStyles.container}>
