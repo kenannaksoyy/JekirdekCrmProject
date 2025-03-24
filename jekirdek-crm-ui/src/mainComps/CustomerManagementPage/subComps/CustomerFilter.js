@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
 import { customerFilterstyles } from "../styles/customerFilterStyle";
-import { regions } from "../../../constanst/sources";
+import { defaultWithRegions } from "../../../constanst/sources";
 import { GetFilteredCustomersService } from "../../../services/customerServices";
 
 export default function CustomerFilter(props) {
     const {getCustomers, setCustomers} = props;
     const [filters, setFilters] = useState({
         name: "",
-        region: "Africa",
+        region: "Seçim Yok",
         startDate: "",
         endDate: "",
     });
 
     const filterCustomer = async () => {
-        const res = await GetFilteredCustomersService(filters.name, filters.region, filters.startDate, filters.endDate);
+        let checkRegion = ""
+        if(filters.region !== "Seçim Yok"){
+            checkRegion = filters.region
+        }
+        const res = await GetFilteredCustomersService(filters.name, checkRegion, filters.startDate, filters.endDate);
         if(res.status === 200){
             if(res.data.filteredCustomers.length === 0){
                 alert("Hiç Müşteri Bulunamadı");
@@ -46,7 +50,7 @@ export default function CustomerFilter(props) {
     const clearFilters = async () => {
         setFilters({
             name: "",
-            region: "Africa",
+            region: "Seçim Yok",
             startDate: "",
             endDate: "",
         });
@@ -74,7 +78,7 @@ export default function CustomerFilter(props) {
                         style={customerFilterstyles.input}
                     >
                         {
-                            regions.map(r => (
+                            defaultWithRegions.map(r => (
                                 <option value={r}>{r}</option>
                             ))
                         }

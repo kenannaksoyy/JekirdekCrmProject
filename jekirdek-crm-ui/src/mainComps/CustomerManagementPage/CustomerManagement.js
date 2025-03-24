@@ -27,6 +27,7 @@ export default function CustomerManagement() {
     //Müşteriler Operasyonlar Sonrası Değiştikçe Sayfa Sayısı Değişcek
     useEffect(() => {
         setPageCount(Math.ceil(customers.length / customersPerPage));
+        setPageNumber(0);
     }, [customers]);
 
     const checkGeneralAuthorization = () => {
@@ -66,7 +67,7 @@ export default function CustomerManagement() {
         }
 
     };
-
+    
 
     //Temel Olarak Sayfalama Yapımız
     //EarlyLoading İle Tüm Datalar Alındığı İçin
