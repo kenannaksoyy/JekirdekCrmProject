@@ -113,7 +113,7 @@ export default function CustomerManagement() {
             console.log("Güncellenecek", customer);
         }
         else {
-            alert("Müşteri Eklemeye Yetkin Yok");
+            alert("Müşteri Güncellemeye Yetkin Yok");
         }
 
     };
@@ -136,7 +136,7 @@ export default function CustomerManagement() {
             }
         }
         else {
-            alert("Müşteri Eklemeye Yetkin Yok");
+            alert("Müşteri Silmeye Yetkin Yok");
         }
 
     };
