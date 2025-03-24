@@ -151,6 +151,34 @@ namespace JekirdekCrm.Application.Services
             }
         }
 
+        public async Task<List<CustomerResponse>> GetFilteredAsync(CustomerFilterRequest customerFilterRequest)
+        {
+            try
+            {
+                StringHelper.TrimStringProperties(customerFilterRequest);
+                if(customerFilterRequest.EndDate !=  null && customerFilterRequest.StartDate != null)
+                {
+                    if(customerFilterRequest.StartDate.Value >= customerFilterRequest.EndDate.Value)
+                    {
+                        throw new ValidFilterKey("Başlangıç Tarihi Bitiş Tarihinden Büyük veya Eşit Olmaz");
+                    }
+                }
+                List<CustomerResponse> customerResponses = [];
+                List<Customer> customers = await _customerRepository
+                .GetFilteredCustomersAsync(customerFilterRequest.FirstName, customerFilterRequest.Region, customerFilterRequest.StartDate, customerFilterRequest.EndDate);
+                if (customers.Count != 0)
+                {
+                    List<CustomerModel> customerModels = _mapper.Map<List<CustomerModel>>(customers);
+                    customerResponses = _mapper.Map<List<CustomerResponse>>(customerModels);
+                }
+                return customerResponses;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
         private static void CheckMissedField(CustomerRequest customerRequest)
         {
             if(string.IsNullOrEmpty(customerRequest.FirstName) || 
@@ -161,5 +189,7 @@ namespace JekirdekCrm.Application.Services
                 throw new MissingFieldException("Güncellenmek İstnen Müşterinin Eksik Alanı Mevcut");
             }
         }
+
+        
     }
 }

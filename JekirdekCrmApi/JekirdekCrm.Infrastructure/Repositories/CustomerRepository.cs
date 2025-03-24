@@ -67,5 +67,31 @@ namespace JekirdekCrm.Infrastructure.Repositories
 
             await _jekirdekCrmDbContext.SaveChangesAsync();
         }
+
+        public async Task<List<Customer>> GetFilteredCustomersAsync(string? name, string? region, DateTime? startDate, DateTime? endDate)
+        {
+            var query = _jekirdekCrmDbContext.Customers.AsQueryable();
+            //Müşteri İsmi Varsa Ekle
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(c => c.FirstName.ToLower() == name.ToLower());
+            }
+            //Müşteri Bölgesi Varsa Ekle
+            if (!string.IsNullOrEmpty(region))
+            {
+                query = query.Where(c => c.Region == region);
+            }
+            if (startDate.HasValue)
+            {
+                query = query.Where(c => c.RegistrationDate >= startDate.Value.ToUniversalTime());
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(c => c.RegistrationDate <= endDate.Value.ToUniversalTime());
+            }
+
+            return await query.ToListAsync();
+        }
     }
 }

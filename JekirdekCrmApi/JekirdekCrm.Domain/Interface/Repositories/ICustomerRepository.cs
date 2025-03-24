@@ -55,6 +55,16 @@ namespace JekirdekCrm.Domain.Interface.Repositories
         /// <param name="email"></param>
         /// <returns></returns>
         public Task<bool> CheckUniqueCustomerAsync(string email, int? id);
+        /// <summary>
+        /// Müşteri Dinamik Keyler İle Filtrelenmesi
+        /// Tüm Filtre Keyler Nullable
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="region"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public Task<List<Customer>> GetFilteredCustomersAsync(string? name, string? region, DateTime? startDate, DateTime? endDate);
 
     }
 }

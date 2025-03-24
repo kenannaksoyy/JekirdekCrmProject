@@ -56,5 +56,13 @@ namespace JekirdekCrm.Domain.Interface.Services
         /// <returns></returns>
         public Task DeleteAsync(int id);
 
+        /// <summary>
+        /// Requestteki Değerlerin Olması Durumuyla Dinamik Filtreleme Yapacak
+        /// Admin ve User Erişebilcek
+        /// </summary>
+        /// <param name="customerFilterRequest"></param>
+        /// <returns></returns>
+        public Task<List<CustomerResponse>> GetFilteredAsync(CustomerFilterRequest customerFilterRequest);
+
     }
 }
