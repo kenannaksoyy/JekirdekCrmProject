@@ -1,0 +1,123 @@
+[
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.AuthenticationController",
+    "Method": "UserLoginAsync",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userLoginRequest",
+        "Type": "JekirdekCrm.Domain.Dto.Request.UserLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "CreateCustomerAsync",
+    "RelativePath": "api/Customer/CreateCustomer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerRequest",
+        "Type": "JekirdekCrm.Domain.Dto.Request.CustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "DeleteCustomerAsync",
+    "RelativePath": "api/Customer/DeleteCustomer/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "GetCustomerAsync",
+    "RelativePath": "api/Customer/GetCustomer/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "GetCustomersAsync",
+    "RelativePath": "api/Customer/GetCustomers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "GetFilteredCustomersAsync",
+    "RelativePath": "api/Customer/GetFilteredCustomers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Region",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JekirdekCrm.Api.Controllers.CustomerController",
+    "Method": "UpdateCustomerAsync",
+    "RelativePath": "api/Customer/UpdateCustomer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerRequest",
+        "Type": "JekirdekCrm.Domain.Dto.Request.CustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,2 @@
+export const regions = ["North America", "Europe", "South America", "Asia", "Africa", "Ocean", "Antartica", "South", "North"];
+export const defaultWithRegions = ["North America", "Europe", "South America", "Asia", "Africa", "Ocean", "Antartica", "South", "North", "Seçim Yok"];

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JekirdekCrm.Api", "JekirdekCrm.Api\JekirdekCrm.Api.csproj", "{820448A7-F9AD-43D1-AE31-4007B74BDCF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JekirdekCrm.Domain", "JekirdekCrm.Domain\JekirdekCrm.Domain.csproj", "{2D92FA52-F7DF-47DC-9720-1A5BE141541C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JekirdekCrm.Application", "JekirdekCrm.Application\JekirdekCrm.Application.csproj", "{3931D8A2-FB79-4EAA-B1BE-F4A5D834CB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JekirdekCrm.CrossCutting", "JekirdekCrm.CrossCutting\JekirdekCrm.CrossCutting.csproj", "{69284277-1741-4614-A158-D69970C3D295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JekirdekCrm.Infrastructure", "JekirdekCrm.Infrastructure\JekirdekCrm.Infrastructure.csproj", "{975A4AAF-6D3B-48EA-B239-306ADE41D017}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{820448A7-F9AD-43D1-AE31-4007B74BDCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820448A7-F9AD-43D1-AE31-4007B74BDCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820448A7-F9AD-43D1-AE31-4007B74BDCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820448A7-F9AD-43D1-AE31-4007B74BDCF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D92FA52-F7DF-47DC-9720-1A5BE141541C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D92FA52-F7DF-47DC-9720-1A5BE141541C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D92FA52-F7DF-47DC-9720-1A5BE141541C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D92FA52-F7DF-47DC-9720-1A5BE141541C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3931D8A2-FB79-4EAA-B1BE-F4A5D834CB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3931D8A2-FB79-4EAA-B1BE-F4A5D834CB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3931D8A2-FB79-4EAA-B1BE-F4A5D834CB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3931D8A2-FB79-4EAA-B1BE-F4A5D834CB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69284277-1741-4614-A158-D69970C3D295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69284277-1741-4614-A158-D69970C3D295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69284277-1741-4614-A158-D69970C3D295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69284277-1741-4614-A158-D69970C3D295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{975A4AAF-6D3B-48EA-B239-306ADE41D017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975A4AAF-6D3B-48EA-B239-306ADE41D017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975A4AAF-6D3B-48EA-B239-306ADE41D017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975A4AAF-6D3B-48EA-B239-306ADE41D017}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

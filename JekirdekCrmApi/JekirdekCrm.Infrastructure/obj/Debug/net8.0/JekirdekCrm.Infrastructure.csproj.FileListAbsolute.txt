@@ -1,0 +1,16 @@
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\bin\Debug\net8.0\JekirdekCrm.Infrastructure.deps.json
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\bin\Debug\net8.0\JekirdekCrm.Infrastructure.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\bin\Debug\net8.0\JekirdekCrm.Infrastructure.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\bin\Debug\net8.0\JekirdekCrm.Domain.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\bin\Debug\net8.0\JekirdekCrm.Domain.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.AssemblyInfo.cs
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.sourcelink.json
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\Jekirdek.B7129A82.Up2Date
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\refint\JekirdekCrm.Infrastructure.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\JekirdekCrm.Infrastructure.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.Infrastructure\obj\Debug\net8.0\ref\JekirdekCrm.Infrastructure.dll

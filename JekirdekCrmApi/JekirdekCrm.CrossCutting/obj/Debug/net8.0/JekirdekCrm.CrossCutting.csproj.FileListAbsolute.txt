@@ -1,0 +1,16 @@
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\bin\Debug\net8.0\JekirdekCrm.CrossCutting.deps.json
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\bin\Debug\net8.0\JekirdekCrm.CrossCutting.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\bin\Debug\net8.0\JekirdekCrm.CrossCutting.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.AssemblyInfo.cs
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.sourcelink.json
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\refint\JekirdekCrm.CrossCutting.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\ref\JekirdekCrm.CrossCutting.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\bin\Debug\net8.0\JekirdekCrm.Domain.dll
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\bin\Debug\net8.0\JekirdekCrm.Domain.pdb
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\JekirdekCrm.CrossCutting.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\JekirdekCrmProject\JekirdekCrmApi\JekirdekCrm.CrossCutting\obj\Debug\net8.0\Jekirdek.246FC578.Up2Date
