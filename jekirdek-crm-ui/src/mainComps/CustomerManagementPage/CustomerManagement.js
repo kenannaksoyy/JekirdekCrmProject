@@ -3,6 +3,7 @@ import { custManStyles } from './styles/customerManStyle';
 import CustomerManPagination from './subComps/CustomerManPagination';
 import { getCustomersService } from '../../services/customerServices';
 import { useNavigate } from 'react-router-dom';
+import CustomerCreateUpdateModal from './subComps/CustomerCreateUpdateModal';
 
 export default function CustomerManagement() {
     const customersPerPage = 5;
@@ -12,6 +13,10 @@ export default function CustomerManagement() {
     const [pageNumber, setPageNumber] = useState(0);
     const [pageCount, setPageCount] = useState();
     const pagesVisited = pageNumber * customersPerPage;
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
+    const [modalMode, setModalMode] = useState("update"); 
 
     //Sayfa İlk Yüklemesi 
     useEffect(() => {
@@ -102,6 +107,9 @@ export default function CustomerManagement() {
     //Müşteri Güncelleme
     const handleUpdate = (customer) => {
         if(checkAdminAuthorization()){
+            setSelectedCustomer(customer);
+            setModalMode("update");
+            setIsModalOpen(true);
             console.log("Güncellenecek", customer);
         }
         else{
@@ -124,6 +132,9 @@ export default function CustomerManagement() {
     //Müşteri Ekleme
     const handleAddCustomer = () => {
         if(checkAdminAuthorization()){
+            setSelectedCustomer(null);
+            setModalMode("add");
+            setIsModalOpen(true);
             console.log("Yeni Müşteri Ekleme");
         }
         else{
@@ -131,6 +142,8 @@ export default function CustomerManagement() {
         }
         
     };
+
+    
 
 
 
@@ -160,6 +173,12 @@ export default function CustomerManagement() {
                 <tbody>{displayCustomers}</tbody>
             </table>
             <CustomerManPagination pageNumber={pageNumber} pageCount={pageCount} setPageNumber={setPageNumber} />
+            <CustomerCreateUpdateModal
+                isModalOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                selectedCustomer={selectedCustomer}
+                modalMode={modalMode}
+            />
         </div>
     );
 }
