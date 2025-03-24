@@ -123,7 +123,7 @@ export default function CustomerManagement() {
     //Müşteri Silme
     const handleDelete = async (customer) => {
         if (checkAdminAuthorization()) {
-            const isConfirmed = window.confirm("Müşteriyi Silmek İstediğine Eminmisin?");
+            const isConfirmed = window.confirm("Müşteriyi Silmek İstediğine Emin misin?");
             if(!isConfirmed){
                 return;
             }

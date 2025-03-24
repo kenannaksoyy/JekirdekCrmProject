@@ -90,8 +90,10 @@ export default function Login() {
             let sessionOk = createSession(userName, token);
             if (sessionOk) {
                 //Herşey Okey Müşteri Yönetim Paneline Yönlendir
-                alert("Kullanıcı Girişi Başarılı");
-                navigate("/CustomerManagement");
+                setTimeout(() => {
+                    alert("Kullanıcı Girişi Başarılı");
+                    navigate("/CustomerManagement");
+                }, 1500);
             }
         }
         else {
