@@ -161,7 +161,7 @@ export default function CustomerManagement() {
 
     return (
         <div style={custManStyles.container}>
-            <h1 style={custManStyles.header}>Müşteri Yönetimi</h1>
+            <h1 style={custManStyles.header}>{sessionStorage.getItem("userName")} Merhaba Müşteri Yönetimi Tablosu</h1>
             <button
                 style={custManStyles.addButton}
                 onMouseEnter={(e) => e.target.style.backgroundColor = "#0056b3"}
