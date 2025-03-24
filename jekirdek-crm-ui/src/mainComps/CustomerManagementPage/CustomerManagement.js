@@ -4,6 +4,7 @@ import CustomerManPagination from './subComps/CustomerManPagination';
 import { deleteCustomerService, getCustomersService } from '../../services/customerServices';
 import { useNavigate } from 'react-router-dom';
 import CustomerCreateUpdateModal from './subComps/CustomerCreateUpdateModal';
+import CustomerFilter from './subComps/CustomerFilter';
 
 export default function CustomerManagement() {
     const customersPerPage = 5;
@@ -192,6 +193,7 @@ export default function CustomerManagement() {
                 modalMode={modalMode}
                 getCustomers={getCustomers}
             />
+            <CustomerFilter/>
         </div>
     );
 }

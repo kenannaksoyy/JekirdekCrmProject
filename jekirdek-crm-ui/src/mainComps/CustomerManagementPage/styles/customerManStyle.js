@@ -1,5 +1,10 @@
 export const custManStyles = {
     container: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "2rem",
         backgroundColor: "#ffffff",
         padding: "20px",
         borderRadius: "10px",
@@ -15,6 +20,7 @@ export const custManStyles = {
     },
     addButton: {
         backgroundColor: "#007bff",
+        width: "150px",
         color: "white",
         border: "none",
         padding: "10px 20px",
