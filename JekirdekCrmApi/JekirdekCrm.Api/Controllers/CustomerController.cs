@@ -169,5 +169,34 @@ namespace JekirdekCrm.Api.Controllers
                 };
             }
         }
+
+        /// <summary>
+        /// Keyler Ýle Filterilenmiþ Müþterileri Getirmektedir
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetFilteredCustomers")]
+        //Admin Ve User Eriþebilir
+        [Authorize(Roles = "Admin,User")]
+        public async Task<IActionResult> GetFilteredCustomersAsync([FromQuery] CustomerFilterRequest customerFilterRequest)
+        {
+            try
+            {
+                List<CustomerResponse> customerResponses = await _customerService.GetFilteredAsync(customerFilterRequest);
+                return Ok(new
+                {
+                    IsError = false,
+                    FilteredCustomers = customerResponses
+                });
+            }
+            catch (Exception ex)
+            {
+                return ex switch
+                {
+                    ValidFilterKey => BadRequest(new { IsError = true, ErrorMessage = ex.Message }),
+                    _ => StatusCode(StatusCodes.Status500InternalServerError, new { IsError = true, ErrorMessage = CUSTOMER_UNEXPEXTED_ERROR + ex.Message })
+                };
+            }
+        }
+
     }
 }

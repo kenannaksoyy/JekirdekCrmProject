@@ -26,5 +26,10 @@ namespace JekirdekCrm.CrossCutting.Exceptions
     /// <param name="message"></param>
     public class PasswordErrorException(string message) : Exception(message) { }
 
+    /// <summary>
+    /// Şifre Yanlış İse Hatası
+    /// </summary>
+    /// <param name="message"></param>
+    public class ValidFilterKey(string message) : Exception(message) { }
 
 }
