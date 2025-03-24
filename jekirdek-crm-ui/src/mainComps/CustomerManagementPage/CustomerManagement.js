@@ -183,9 +183,10 @@ export default function CustomerManagement() {
             <CustomerManPagination pageNumber={pageNumber} pageCount={pageCount} setPageNumber={setPageNumber} />
             <CustomerCreateUpdateModal
                 isModalOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                onClose={() => {setIsModalOpen(false); setSelectedCustomer(null)}}
                 selectedCustomer={selectedCustomer}
                 modalMode={modalMode}
+                getCustomers={getCustomers}
             />
         </div>
     );

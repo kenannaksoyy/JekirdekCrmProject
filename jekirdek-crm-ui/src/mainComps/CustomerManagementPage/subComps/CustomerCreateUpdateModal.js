@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { customerModalStyles } from '../styles/customerModalStyle';
 import { regions } from '../../../constanst/sources';
+import { createCustomerService, updateCustomerService } from '../../../services/customerServices';
 
 export default function CustomerCreateUpdateModal(props) {
-    const { isModalOpen, onClose, selectedCustomer, modalMode } = props;
+    const { isModalOpen, onClose, selectedCustomer, modalMode, getCustomers } = props;
     const [formData, setFormData] = useState(null);
 
     useEffect(() => {
         //customer Baba Bileşende Güncelleme İçin Olcak Müşteri Eklemede null atanıyor
         //Modal Arkada Duruyor Müşteri İle Setlenmeli
         setFormData({
-            id : selectedCustomer?.id || 0,
+            id: selectedCustomer?.id || 0,
             firstName: selectedCustomer?.firstName || "",
             lastName: selectedCustomer?.lastName || "",
             email: selectedCustomer?.email || "",
-            region: selectedCustomer?.region || "",
+            region: selectedCustomer?.region || "Europe",
         });
     }, [selectedCustomer]);
-
-
 
     //Form Değişimi İd ile Eşleniyor
     const handleChange = (e) => {
@@ -26,17 +25,57 @@ export default function CustomerCreateUpdateModal(props) {
         setFormData((prev) => ({ ...prev, [id]: value }));
     };
 
-    //Duruma Göre Servisleri Çağırcak 
-    const handleModalSubmit = (e) => {
-        e.preventDefault();
-        if (modalMode === "update") {
-            console.log('Güncellenecek Veri:', formData);
-
-        } else if (modalMode === "add") {
-            console.log('eklenecek Müşteri:', formData);
-
+    const updateCustomer = async (data) => {
+        //Müşteri Güncelleme
+        const res = await updateCustomerService(data);
+        if (res.status === 204) {
+            alert(data.id + " 'liMüşteri Güncellendi");
+            await getCustomers();
+            onClose();
         }
-        onClose();
+        else {
+            if (res.status === 404 || res.status === 409 || res.status === 404) {
+                alert(res.response.data.errorMessage);
+            }
+            else {
+                alert("Beklenmedik Bir Hata Oluştu");
+            }
+        }
+
+    };
+
+    const crateCustomer = async (data) => {
+        //Müşteri Oluşturma
+        const res = await createCustomerService(data);
+        if (res.status === 201) {
+            alert(res.data.newCustomerId + " ile Yeni Müşteri Oluşturuldu");
+            await getCustomers();
+            onClose();
+        }
+        else {
+            if (res.status === 409 || res.status === 400) {
+                alert(res.response.data.errorMessage);
+            }
+            else {
+                alert("Beklenmedik Bir Hata Oluştu");
+            }
+        }
+    };
+
+    //Duruma Göre Servisleri Çağırcak 
+    const handleModalSubmit = async (e) => {
+        e.preventDefault();
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.region) {
+            alert("Eksik Bilgiler Mevcut")
+        }
+        else {
+            if (modalMode === "update") {
+                await updateCustomer(formData);
+
+            } else if (modalMode === "add") {
+                await crateCustomer(formData);
+            }
+        }
     };
 
     //Zaten Kapalı İse Null Dönsün Güncelle Ve Ekle Butonları İle Sağlancak
